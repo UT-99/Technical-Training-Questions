@@ -448,6 +448,38 @@ y += Typeof (F)
 console.log(y); // Output1undefnied;
 ```
 
+Q.27 Output Based Question  
+
+```JS
+(function(){
+var a = b = 3;
+})();
+console.log(""a defined? "" + (typeof a !== ’undefined’)); // true 
+console.log(""b defined? "" + (typeof b !== ’undefined’)); // true 
+```
+
+Q.28 Write a code to find the unique word from the string.
+
+```JS
+Input : "" HELLO HELLO BYE BYE HI "" Output : HI"
+
+let inputStr = "HELLO HELLO BYE BYE HI";
+
+inputStr = inputStr.split(" ");
+
+for(let i=0;i<inputStr.length;i++){
+    let falg = true;
+    for(let j=0;j<inputStr.length;j++){
+        if(inputStr[i]===inputStr[j] && i!==j){
+            falg = false;
+        }
+    }
+    if(falg){
+        console.log(inputStr[i]);
+    }
+}
+```
+
 
 
 
