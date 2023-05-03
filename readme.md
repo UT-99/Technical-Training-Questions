@@ -74,7 +74,44 @@ Q.4 What is would be the output of the following :
 
 ```
 
-Q.5 How do you print numbers with commas as thousand separators
+Q.5 How do you print numbers with commas as thousand separators.
+
+```JS
+let number = 10008655476575668000;
+
+function seperator(number){
+    let num = number;
+    let str = "";
+    
+    while(num>0){
+        let rem =num%1000;
+        console.log("num",num);
+        console.log("rem",rem);
+
+        if(rem>0 && num >1000){
+            // str+=rem;
+            if(rem<10){
+                str = ",00" + rem +str; 
+            }else if(rem<100){
+                str = ",0" + rem +str; 
+            }else{
+                str = "," + rem +str;
+            }
+            console.log("rem>0",str);
+        }else if(num>=999){
+            str = "," + "000"+str;
+            console.log("nem>999",str);
+        }else if(num<1000){
+            str = num + str;
+            break;
+        }
+        num = Math.floor(num/1000);
+    }
+    console.log(str);
+}
+
+seperator(number);
+```
 
 Q.6 How can we delete an element at a specific index in an array.
 
@@ -92,6 +129,20 @@ console.log(deleteArrayElement(mySecondArray,2 ))
 ```
 
 Q.7 Write a code to find the second largest value in an array.");
+
+```JS
+let secondLargest = [1,2,3,4,5,66,234,7,8,9,99];
+
+let largest = secondLargest[0];
+let secLargest = -999;
+secondLargest.forEach((ele)=>{
+    if(ele>largest){
+        largest = ele;
+    }else if(ele>secLargest){
+        secLargest = ele;
+    }
+});
+```
 
 Q.8 How to check the no. of occurrence of a character in a string.");
 
@@ -114,7 +165,7 @@ console.log(numberOfCharacters)
 
 ```
 
-Q.9
+Q.9 Output based questions .
 
 ```JS
 
@@ -139,9 +190,7 @@ const usingObjectLiteral = {
 console.log("Using Object literall : ");
 console.log(usingObjectLiteral)
 
-
 const usingObjectConstructor = new Object();
-
 usingObjectConstructor.firstName = "Harsh";
 usingObjectConstructor.lastName = "Tiwari";
 usingObjectConstructor.age = 34;
@@ -149,7 +198,6 @@ usingObjectConstructor.city = "Pune";
 
 console.log("Using object constructor  : ");
 console.log(usingObjectConstructor)
-
 
 // using functionConstructor 
 
@@ -159,14 +207,12 @@ function usingFunctionConstructor(name , age , city ){
     this.city = city ;
 }
 
-
 const object1 = new usingFunctionConstructor("Raj", 34, "Canada");
-
 console.log("Using Function constructor : ");
 console.log(object1);
 ```
 
-Q.11 
+Q.11 Output based questions. 
 
 ```JS
 var employeeId = '1234abe';
@@ -180,6 +226,19 @@ var employeeId = '1234abe';
 ```
 
 Q.12 How to find duplicate elements in a given array?
+
+```JS
+const duplicate = [1,2,3,4,5,6,4,7,3];
+
+for(let i =0; i<duplicate.length;i++){
+    for(let j=i+1; j<duplicate.length;j++){
+        if(duplicate[i]== duplicate[j]){
+            console.log(duplicate[j]);
+        }
+    }
+}
+```
+
 
 Q.13 How to find the unique value from an array in sorted order
 
@@ -223,6 +282,16 @@ console.log("Newly created sentence is : "+sentencearr );
 ```
 
 Q.15 Given a two strings find out if they are anagram of each other.
+
+```JS
+let string1 = "listen";
+let string2 = "s5ilent";
+
+string1 = string1.replace(/[^\w]/g,"").toLowerCase().split("").sort().join("");
+string2 = string2.replace(/[^\w]/g,"").toLowerCase().split("").sort().join("");
+
+console.log(string1 === string2);
+```
 
 Q.16 How can you extract  a few fields  from the given JSON object  and form a new array? 
 
@@ -275,7 +344,18 @@ console.log(toArray);
 Q.19 Write a function that takes an array of numbers and returns the median value.
 
 ```JS
-const medianArray = [1,2,3,4,5,6,7,6,7,8,9]
+const medianArray = [1,2,3,4,5,6,7,6,7,8,9];
+
+function median(medianArray){
+    if(medianArray.length %2 ===0){
+        let index = Math.floor((medianArray.length-1) /2);
+        let medianOfArray = (medianArray[index] + medianArray[index+1])/2;
+        return medianArray;
+    }else{
+        let index = Math.floor((medianArray.length-1) /2);
+        return medianArray[index];
+    }
+}
 ```
 
 Q.20 Output Based Question.
@@ -306,6 +386,23 @@ console.log("The fahrenhiet value is : "+ Fahrenheit)
 ```
 
 Q.23 Create a function that will find the nth Fibonacci number using recursion.
+
+```JS
+let num = 4;
+
+console.log(Fibonacci(num));
+
+function Fibonacci(num){
+    if(nth>2){
+        return Fibonacci(num-1) + Fibonacci(num-2);
+    }else if(num>1){
+        return 1;
+    }else{
+        return 0;
+    }
+}
+
+```
 
 Q.24 Create a function that will receive two arrays of numbers as arguments and return an array composed of all the numbers that are either in the first array or second array but not in both
 
